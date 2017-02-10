@@ -17,6 +17,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^clients', 'mySweetCompany.views.clients', name='clients'),
+    url(r'^credits', 'mySweetCompany.views.credits', name='credits'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'mySweetCompany.views.home', name='home'),

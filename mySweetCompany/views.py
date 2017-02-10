@@ -10,3 +10,6 @@ def home(request):
 def clients(request):
     clients = Client.objects.all()
     return render(request, 'clients.html', {'clients':clients})
+
+def credits(request):
+    return render(request, 'credits.html')
