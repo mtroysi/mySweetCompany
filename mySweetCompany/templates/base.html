@@ -16,10 +16,10 @@
         {% block navigation %}
             <nav>
                 <ul class="navigation">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Liste des produits</a></li>
-                    <li><a href="#">Panier</a></li>
-                    <li><a href="#">Connexion</a></li>
+                    <li><a href="{% url 'home' %}">Accueil</a></li>
+                    <li><a href="{% url 'produits' %}">Liste des produits</a></li>
+                    <li><a href="{% url 'panier' %}">Panier</a></li>
+                    <li><a href="{% url 'login' %}">Connexion</a></li>
                     <li>Bonjour</li>
                 </ul>
             </nav>
@@ -41,7 +41,7 @@
 
     <div id="footer">
         {% block footer %}
-            My Sweet Company - created by Morgane TROYSI - <a href="{% url 'credits' %}">Crédit & mentions légales</a> - <a href="#">Contact</a>
+            My Sweet Company - created by Morgane TROYSI - <a href="{% url 'credits' %}">Crédit & mentions légales</a> - <a href="{% url 'contact' %}">Contact</a>
         {% endblock %}
     </div>
 </div>
