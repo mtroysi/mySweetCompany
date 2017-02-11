@@ -3,5 +3,14 @@
 {% block pagetitle %}Liste des produits{% endblock %}
 
 {% block content %}
-
+    {% for produit in produits %}
+        <p><a href="#"> {{produit.nom}}</a><br/>
+        vendu par
+            {% for vendeur in produit.vendeurs.all %}
+                {{ vendeur.nom }}
+                {% endfor %} <br/>
+            Note : {{produit.note}}/5</p>
+        {% empty %}
+        <p>Pas de produits à afficher.</p>
+    {% endfor %}
 {% endblock %}
