@@ -2,18 +2,18 @@
 from django.shortcuts import render
 from django.conf import settings
 from produits.models import Produit
+from client.models import Client
 from mySweetCompany.forms import ContactForm
+from mySweetCompany.forms import InscriptionForm
+from mySweetCompany.forms import LoginForm
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
 from django.contrib import messages
-
-
-# def home(request):
-#     name='Valou'
-#     n=36
-#     return render(request, 'base.html', {'name':name, 'n':n})
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as auth_login
 
 
 def home(request):
@@ -22,11 +22,46 @@ def home(request):
 
 
 def login(request):
-    return render(request, 'connexion.html')
+    form_class = LoginForm
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+
+        if form.is_valid():
+            username = request.POST.get('username', '')
+            pwd = request.POST.get('pwd', '')
+            user = authenticate(username=username, password=pwd)
+            if user is not None:
+                auth_login(request, user)
+            return redirect('/')
+    return render(request, 'login.html', {'form': form_class})
 
 
 def inscription(request):
-    return render(request, 'inscription.html')
+    form_class = InscriptionForm
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+
+        if form.is_valid():
+            client = Client()
+            user = User()
+            user.username = request.POST.get('username', '')
+            user.password = request.POST.get('password', '')
+            user.save()
+            client.user = user
+            client.nom = request.POST.get('nom', '')
+            client.prenom = request.POST.get('prenom', '')
+            client.age = request.POST.get('age', '')
+            client.mail = request.POST.get('mail', '')
+            client.save()
+
+            # user.username = client.mail
+            # user.email = client.mail
+            # user.first_name = client.prenom
+            # user.last_name = client.nom
+            # user.save()
+            messages.add_message(request, messages.INFO, 'Inscription réussie.')
+            return redirect('/')
+    return render(request, 'inscription.html', {'form': form_class})
 
 
 def produits(request):
@@ -34,6 +69,7 @@ def produits(request):
     return render(request, 'produits.html', {'produits': produits})
 
 
+@login_required
 def panier(request):
     return render(request, 'panier.html')
 
@@ -72,6 +108,7 @@ def contact(request):
             email.send()
             messages.add_message(request, messages.INFO, 'Message envoyé.')
             return redirect('contact')
+
     return render(request, 'contact.html', {'form': form_class})
 
 
