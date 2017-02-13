@@ -3,7 +3,8 @@
 {% block pagetitle %}Contact{% endblock %}
 
 {% block content %}
-    <h1>Contact</h1>
+    <fieldset>
+    <legend>Contact</legend>
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -16,4 +17,5 @@
         {{ form.as_p }}
         <button type="submit">Envoyer</button>
     </form>
+    </fieldset>
 {% endblock %}
