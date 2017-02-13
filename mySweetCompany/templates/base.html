@@ -22,8 +22,12 @@
                     <li><a href="{% url 'home' %}">Accueil</a></li>
                     <li><a href="{% url 'produits' %}">Liste des produits</a></li>
                     <li><a href="{% url 'panier' %}">Panier</a></li>
-                    <li><a href="{% url 'login' %}">Connexion</a></li>
-                    <li>Bonjour</li>
+                    {% if user.is_authenticated %}
+                        <li>Bonjour {{ user.first_name }}</li>
+                        <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Connexion</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         {% endblock %}

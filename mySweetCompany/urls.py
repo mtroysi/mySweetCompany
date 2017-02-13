@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^produits', 'mySweetCompany.views.produits', name='produits'),
     url(r'^panier', 'mySweetCompany.views.panier', name='panier'),
     url(r'^inscription', 'mySweetCompany.views.inscription', name='inscription'),
+    url(r'^logout', 'mySweetCompany.views.logout_view', name='logout'),
     url(r'^accounts/login/$', 'mySweetCompany.views.login', name='login'),
     url(r'^contact', 'mySweetCompany.views.contact', name='contact'),
     url(r'^credits', 'mySweetCompany.views.credits', name='credits'),

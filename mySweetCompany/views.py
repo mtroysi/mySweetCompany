@@ -14,6 +14,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import logout
 
 
 def home(request):
@@ -28,12 +29,20 @@ def login(request):
 
         if form.is_valid():
             username = request.POST.get('username', '')
-            pwd = request.POST.get('pwd', '')
-            user = authenticate(username=username, password=pwd)
+            password = request.POST.get('password', '')
+            user = authenticate(username=username, password=password)
             if user is not None:
                 auth_login(request, user)
+            else:
+                # the authentication system was unable to verify the username and password
+                print("The username and password were incorrect.")
             return redirect('/')
     return render(request, 'login.html', {'form': form_class})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
 
 def inscription(request):
@@ -43,22 +52,16 @@ def inscription(request):
 
         if form.is_valid():
             client = Client()
-            user = User()
-            user.username = request.POST.get('username', '')
-            user.password = request.POST.get('password', '')
+            user = User.objects.create_user(username=form.cleaned_data['username'],
+                                            password=form.cleaned_data['password'],
+                                            email=form.cleaned_data['mail'],
+                                            first_name=form.cleaned_data['prenom'],
+                                            last_name=form.cleaned_data['nom'])
             user.save()
             client.user = user
-            client.nom = request.POST.get('nom', '')
-            client.prenom = request.POST.get('prenom', '')
             client.age = request.POST.get('age', '')
-            client.mail = request.POST.get('mail', '')
             client.save()
 
-            # user.username = client.mail
-            # user.email = client.mail
-            # user.first_name = client.prenom
-            # user.last_name = client.nom
-            # user.save()
             messages.add_message(request, messages.INFO, 'Inscription réussie.')
             return redirect('/')
     return render(request, 'inscription.html', {'form': form_class})

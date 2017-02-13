@@ -8,10 +8,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Client(models.Model):
-	user = models.OneToOneField(User, null=True)
-	nom = models.CharField(max_length=1024)
-	prenom = models.CharField(max_length=1024)
+	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 	age = models.IntegerField()
-	mail = models.EmailField(unique=True)
 	date_inscription = models.DateTimeField(default=timezone.now)
 	produits = models.ManyToManyField(Produit, blank=True)

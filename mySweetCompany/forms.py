@@ -16,7 +16,7 @@ class ContactForm(forms.Form):
 
 class InscriptionForm(forms.Form):
     username = forms.CharField(max_length=1024, required=True)
-    pwd = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput)
     nom = forms.CharField(max_length=1024, required=True)
     prenom = forms.CharField(max_length=1024, required=True)
     age = forms.IntegerField(required=True)
@@ -25,11 +25,12 @@ class InscriptionForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(InscriptionForm, self).__init__(*args, **kwargs)
         self.fields['username'].label = "Pseudo :"
-        self.fields['pwd'].label = "Mot de passe :"
+        self.fields['password'].label = "Mot de passe :"
         self.fields['nom'].label = "Nom :"
         self.fields['prenom'].label = "Prénom :"
         self.fields['age'].label = "Âge :"
         self.fields['mail'].label = "Adresse e-mail :"
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=1024, required=True)
