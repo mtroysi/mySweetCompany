@@ -3,15 +3,9 @@
 {% block pagetitle %}Contact{% endblock %}
 
 {% block content %}
+    {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
     <legend>Contact</legend>
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
     <form role="form" class="contact" action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}

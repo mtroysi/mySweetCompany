@@ -3,6 +3,7 @@
 {% block pagetitle %}Connexion{% endblock %}
 
 {% block content %}
+    {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
     <legend>Connexion</legend>
     <form role="form" class="contact" action="" method="post">

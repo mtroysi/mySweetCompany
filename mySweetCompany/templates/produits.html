@@ -3,6 +3,9 @@
 {% block pagetitle %}Liste des produits{% endblock %}
 
 {% block content %}
+    {% block notice %}{{ block.super }}{% endblock notice %}
+    <fieldset>
+        <legend>Liste des produits</legend>
     {% for produit in produits %}
         <p><a href="#"> {{produit.nom}}</a><br/>
         vendu par

@@ -3,6 +3,7 @@
 {% block pagetitle %}Inscription{% endblock %}
 
 {% block content %}
+    {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
         <legend>Inscription</legend>
     <form role="form" class="contact" action="" method="post">

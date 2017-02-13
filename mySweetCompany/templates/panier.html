@@ -3,5 +3,7 @@
 {% block pagetitle %}Panier{% endblock %}
 
 {% block content %}
-
+    {% block notice %}{{ block.super }}{% endblock notice %}
+    <fieldset>
+        <legend>Mon panier</legend>
 {% endblock %}

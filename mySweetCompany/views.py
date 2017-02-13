@@ -33,6 +33,7 @@ def login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 auth_login(request, user)
+                messages.add_message(request, messages.INFO, 'Bienvenue.')
             else:
                 # the authentication system was unable to verify the username and password
                 print("The username and password were incorrect.")
