@@ -7,7 +7,7 @@
     <fieldset>
         <legend>Liste des produits</legend>
     {% for produit in produits %}
-        <p><a href="#"> {{produit.nom}}</a><br/>
+        <p><a href="{% url 'show' id=produit.id %}" > {{produit.nom}}</a><br/>
         vendu par
             {% for vendeur in produit.vendeurs.all %}
                 {{ vendeur.nom }}
@@ -16,4 +16,5 @@
         {% empty %}
         <p>Pas de produits à afficher.</p>
     {% endfor %}
+    </fieldset>
 {% endblock %}

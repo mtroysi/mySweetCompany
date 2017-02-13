@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}{{ produit.nom }}{% endblock %}
+
+{% block content %}
+    {% block notice %}{{ block.super }}{% endblock notice %}
+    <fieldset>
+        <legend>Détail du produit</legend>
+
+    </fieldset>
+{% endblock %}
