@@ -234,3 +234,7 @@ fieldset .notice {
     margin-bottom: 20px;
     margin-top: -15px;
 }
+
+strong { font-weight: bold; }
+
+em {font-style: italic}

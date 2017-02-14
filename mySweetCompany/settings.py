@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'client',
     'produits',
     'societes',
+    'carton',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,3 +119,5 @@ EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
 
 LOGIN_REDIRECT_URL = '/'
+
+CART_PRODUCT_MODEL = 'produits.models.Produit'

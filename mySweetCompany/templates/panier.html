@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 
+
 {% block pagetitle %}Panier{% endblock %}
 
 {% block content %}
     {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
         <legend>Mon panier</legend>
+        {% load carton_tags %}
+        {% get_cart as cart %}
+        {% for item in cart.items %}
+            {{ item.product.nom }}
+            {{ item.quantity }}
+            {{ item.subtotal }}
+        {% endfor %}
+    </fieldset>
 {% endblock %}
