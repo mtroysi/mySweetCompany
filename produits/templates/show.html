@@ -6,6 +6,20 @@
     {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
         <legend>Détail du produit</legend>
+        <h3>{{ produit.nom }}</h3>
+        <p>Prix : {{ produit.prix }}€ <br/>
+            Note : {{ produit.note }}/5 <br/></p>
+        {% if produit.description %}
+            <p> {{ produit.description }}</p>
+        {% else %}
+            <p>Pas de description.</p>
+        {% endif %}
+
+        <form role="form" class="add_to_cart form-group" action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-link">Ajouter au panier</button>
+        </form>
 
     </fieldset>
 {% endblock %}

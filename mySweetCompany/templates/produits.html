@@ -6,15 +6,22 @@
     {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
         <legend>Liste des produits</legend>
-    {% for produit in produits %}
-        <p><a href="{% url 'show' id=produit.id %}" > {{produit.nom}}</a><br/>
-        vendu par
-            {% for vendeur in produit.vendeurs.all %}
-                {{ vendeur.nom }}
+        {% for produit in produits %}
+            <p><a href="{% url 'show' id=produit.id %}"> {{ produit.nom }}</a><br/>
+                vendu par
+                {% for vendeur in produit.vendeurs.all %}
+                    {{ vendeur.nom }}
                 {% endfor %} <br/>
-            Note : {{produit.note}}/5</p>
+                Note : {{ produit.note }}/5</p>
+            <div class="row-product">
+                <form role="form" class="add_to_cart form-group" action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-link">Ajouter au panier</button>
+                </form>
+            </div>
         {% empty %}
-        <p>Pas de produits à afficher.</p>
-    {% endfor %}
+            <p>Pas de produits à afficher.</p>
+        {% endfor %}
     </fieldset>
 {% endblock %}

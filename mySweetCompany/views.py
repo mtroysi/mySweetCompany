@@ -6,6 +6,7 @@ from client.models import Client
 from mySweetCompany.forms import ContactForm
 from mySweetCompany.forms import InscriptionForm
 from mySweetCompany.forms import LoginForm
+from produits.forms import ProductForm
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect
 from django.template import Context
@@ -70,7 +71,14 @@ def inscription(request):
 
 def produits(request):
     produits = Produit.objects.all()
-    return render(request, 'produits.html', {'produits': produits})
+    form_class = ProductForm
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+        if form.is_valid():
+            number = request.POST.get('product_number', '')
+            # print 'Produit ' + str(produit.id) + ' ajouté ' + str(number) + ' fois'
+            messages.add_message(request, messages.INFO, 'Produit ajouté au panier.')
+    return render(request, 'produits.html', {'produits': produits, 'form': form_class})
 
 
 @login_required

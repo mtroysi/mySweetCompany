@@ -1,46 +1,204 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0
+}
 
-body { line-height: 1;font-family: Arial, Helvetica, sans-serif;font-size: 12px; width: 100%; height: 100%; color: #000; font-size: 14px; }
-.clear { clear: both; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
 
-#wrapper { margin: 10px auto; width: 1000px; }
-#wrapper a { text-decoration: none; color: #F48A00; }
-#wrapper span.highlight { color: #F48A00; }
+body {
+    line-height: 1
+}
 
-#header { border-bottom: 1px solid #ccc; margin-bottom: 20px; }
-#header .top { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
-#header ul.navigation { list-style: none; text-align: right; }
-#header .navigation li { display: inline; border-left: 1px solid #ccc;display: inline-block; padding: 10px 15px;}
+ol, ul {
+    list-style: none
+}
+
+blockquote, q {
+    quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+body {
+    line-height: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 14px;
+}
+
+.clear {
+    clear: both;
+}
+
+#wrapper {
+    margin: 10px auto;
+    width: 1000px;
+}
+
+#wrapper a {
+    text-decoration: none;
+    color: #F48A00;
+}
+
+#wrapper span.highlight {
+    color: #F48A00;
+}
+
+#header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+#header .top {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+#header ul.navigation {
+    list-style: none;
+    text-align: right;
+}
+
+#header .navigation li {
+    display: inline;
+    border-left: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 15px;
+}
+
 /*#header .navigation li a { display: inline-block; padding: 10px 15px;  }*/
 /*h2 { font-family: 'Irish Grover', cursive; font-size: 92px; text-align: center; line-height: 110px; }*/
-#header h2 a { color: #000; }
-#header h2 { text-align: center; font-family: 'La Belle Aurore', cursive; font-size: 70px; margin-bottom: 20px; margin-top: 20px;font-weight: normal; }
+#header h2 a {
+    color: #000;
+}
 
-.main-col { width: 100%; display: inline-block; float: left;  padding: 20px; margin-bottom: 20px; }
+#header h2 {
+    text-align: center;
+    font-family: 'La Belle Aurore', cursive;
+    font-size: 70px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.main-col {
+    width: 100%;
+    display: inline-block;
+    float: left;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 /*.sidebar { width: 239px; padding: 10px; display: inline-block; }*/
 
-.main-col a { color: #F48A00; }
+.main-col a {
+    color: #F48A00;
+}
+
 .main-col h1,
-.main-col h2
-{ line-height: 1.2em; font-size: 32px; margin-bottom: 10px; font-weight: normal; color: #F48A00; }
-.main-col h3
-{ line-height: 1.2em; font-size: 25px; margin-bottom: 10px; font-weight: normal; color: #F48A00; }
-.main-col p { line-height: 1.5em; margin-bottom: 20px; }
+.main-col h2 {
+    line-height: 1.2em;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #F48A00;
+}
 
-#footer { border-top: 1px solid #ccc; clear: both; text-align: center; padding: 10px; color: #aaa; }
+.main-col h3 {
+    line-height: 1.2em;
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #F48A00;
+}
 
-ul.messages { text-align: center; padding: 10px; background: #DFF2BF; border: 1px solid; color: #4F8A10; margin-bottom: 10px; }
-form.contact { font-size: 16px; }
-form.contact div { clear: left; margin-bottom: 10px; }
-form.contact label { float: left; margin-right: 10px; text-align: right; width: 200px; font-weight: bold; vertical-align: top; padding-top: 10px; }
+.main-col p {
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+#footer {
+    border-top: 1px solid #ccc;
+    clear: both;
+    text-align: center;
+    padding: 10px;
+    color: #aaa;
+}
+
+ul.messages {
+    text-align: center;
+    padding: 10px;
+    background: #DFF2BF;
+    border: 1px solid;
+    color: #4F8A10;
+    margin-bottom: 10px;
+}
+
+form.contact {
+    font-size: 16px;
+}
+
+form.contact div {
+    clear: left;
+    margin-bottom: 10px;
+}
+
+form.contact label {
+    float: left;
+    margin-right: 10px;
+    text-align: right;
+    width: 200px;
+    font-weight: bold;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
 form.contact input[type="text"],
 form.contact input[type="email"],
 form.contact input[type="password"],
-form.contact input[type="number"]
-{ width: 500px; line-height: 26px; font-size: 20px; min-height: 26px; }
-form.contact textarea { width: 510px; height: 150px; line-height: 26px; font-size: 20px; }
-form.contact button[type="submit"] { margin-left: 210px; width: 518px; line-height: 26px; font-size: 20px; min-height: 26px; margin-bottom: 20px; }
-form.contact ul li { color: #ff0000; margin-bottom: 5px; }
+form.contact input[type="number"] {
+    width: 500px;
+    line-height: 26px;
+    font-size: 20px;
+    min-height: 26px;
+}
+
+form.contact textarea {
+    width: 510px;
+    height: 150px;
+    line-height: 26px;
+    font-size: 20px;
+}
+
+form.contact button[type="submit"] {
+    margin-left: 210px;
+    width: 518px;
+    line-height: 26px;
+    font-size: 20px;
+    min-height: 26px;
+    margin-bottom: 20px;
+}
+
+form.contact ul li {
+    color: #ff0000;
+    margin-bottom: 5px;
+}
 
 fieldset {
     display: block;
@@ -54,7 +212,25 @@ fieldset {
 }
 
 fieldset legend {
-    line-height: 1.2em; font-size: 32px; margin-bottom: 10px; font-weight: normal; color: #F48A00;
+    line-height: 1.2em;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #F48A00;
+    width: auto;
 }
 
-fieldset .notice {text-align: center}
+fieldset .notice {
+    text-align: center
+}
+
+.add_to_cart input[type="number"] {
+    margin-left: 10px;
+    width: 6%;
+    margin-right: 10px;
+}
+
+.row-product {
+    margin-bottom: 20px;
+    margin-top: -15px;
+}

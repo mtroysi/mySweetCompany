@@ -2,59 +2,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta  charset="utf-8">
+    <meta charset="utf-8">
     <title>
         {% block pagetitle %}{% endblock %} | MySweetCompany
     </title>
 </head>
 
 <div id="wrapper">
-{% block stylesheets %}
-    <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'mySweetCompany/style.css' %}" />
-{% endblock %}
+    {% block stylesheets %}
+        <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'mySweetCompany/style.css' %}"/>
+    {% endblock %}
 
     <div id="header">
-    <div class="top">
-        {% block navigation %}
-            <nav>
-                <ul class="navigation">
-                    <li><a href="{% url 'home' %}">Accueil</a></li>
-                    <li><a href="{% url 'produits' %}">Liste des produits</a></li>
-                    <li><a href="{% url 'panier' %}">Panier</a></li>
-                    {% if user.is_authenticated %}
-                        <li>Bonjour {{ user.first_name }}</li>
-                        <li><a href="{% url 'logout' %}">Déconnexion</a></li>
-                    {% else %}
-                        <li><a href="{% url 'login' %}">Connexion</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-        {% endblock %}
+        <div class="top">
+            {% block navigation %}
+                <nav>
+                    <ul class="navigation">
+                        <li><a href="{% url 'home' %}">Accueil</a></li>
+                        <li><a href="{% url 'produits' %}">Liste des produits</a></li>
+                        <li><a href="{% url 'panier' %}">Panier</a></li>
+                        {% if user.is_authenticated %}
+                            <li>Bonjour {{ user.first_name }}</li>
+                            <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                        {% else %}
+                            <li><a href="{% url 'login' %}">Connexion</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endblock %}
+        </div>
+
+        {% block title %}
+            <h2>My Sweet Company</h2>
+        {% endblock title %}
     </div>
 
-    {% block title %}
-        <h2>My Sweet Company</h2>
-    {% endblock title %}
+    <div id="content" class="main-col">
+        {% block content %}
+            {% block notice %}
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endblock notice %}
+        {% endblock content %}
     </div>
-
-<div id="content" class="main-col">
-    {% block content %}
-        {% block notice %}
-            {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endblock notice %}
-    {% endblock content %}
-</div>
 
     <div id="footer">
         {% block footer %}
-            My Sweet Company - created by Morgane TROYSI - <a href="{% url 'credits' %}">Crédit & mentions légales</a> - <a href="{% url 'contact' %}">Contact</a>
+            My Sweet Company - created by Morgane TROYSI - <a href="{% url 'credits' %}">Crédit & mentions légales</a> -
+            <a href="{% url 'contact' %}">Contact</a>
         {% endblock %}
     </div>
 </div>
