@@ -9,7 +9,7 @@
     <form role="form" class="contact" action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Envoyer</button>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
     </fieldset>
 {% endblock %}
