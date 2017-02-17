@@ -17,6 +17,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^produits', 'mySweetCompany.views.produits', name='produits'),
+    url(r'^produit/(?P<id>[0-9]+)/remove', 'produits.views.remove_from_cart', name='remove_from_cart'),
     url(r'^produit/(?P<id>[0-9]+)/$', 'produits.views.show', name='show'),
     url(r'^panier', 'mySweetCompany.views.panier', name='panier'),
     url(r'^inscription', 'mySweetCompany.views.inscription', name='inscription'),

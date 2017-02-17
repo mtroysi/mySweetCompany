@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
+{% load carton_tags %}
 
 {% block pagetitle %}Panier{% endblock %}
 
 {% block content %}
     {% block notice %}{{ block.super }}{% endblock notice %}
-    <fieldset>
+    <fieldset xmlns="http://www.w3.org/1999/html">
         <legend>Mon panier</legend>
         <table>
             <tr>
@@ -16,11 +16,12 @@
                 <th>Prix total</th>
             </tr>
 
-            {% load carton_tags %}
+
             {% get_cart as cart %}
             {% for item in cart.items %}
                 <tr>
-                    <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    <td><a href="{% url 'remove_from_cart' id=item.product.id %}"> <span
+                            class="glyphicon glyphicon-remove"></span></a></td>
                     <td class="left"><a href="{% url 'show' id=item.product.id %}">{{ item.product.nom }}</a></td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.price }}€</td>
@@ -33,5 +34,12 @@
                 <td>{{ cart.total }}€</td>
             </tr>
         </table>
+        <div class="commande">
+            {% if cart.items %}
+                <button type="submit" class="btn btn-primary">Commander</button>
+            {% else %}
+                <button type="submit" class="btn btn-primary disabled">Commander</button>
+            {% endif %}
+        </div>
     </fieldset>
 {% endblock %}

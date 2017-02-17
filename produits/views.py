@@ -24,3 +24,11 @@ def show(request, id):
 
     return render(request, 'show.html', {'produit': produit, 'form': form_class})
 
+
+def remove_from_cart(request, id):
+    produit = Produit.objects.get(id=id)
+    if produit is not None:
+        cart = Cart(request.session)
+        cart.remove(produit)
+        messages.add_message(request, messages.INFO, 'Produit retiré du panier.')
+    return render(request, 'panier.html')

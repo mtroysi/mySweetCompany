@@ -275,3 +275,9 @@ th {
 .right {
     text-align: right;
 }
+
+.commande {
+    float: right;
+    margin-right: 140px;
+    margin-top: 10px;
+}
