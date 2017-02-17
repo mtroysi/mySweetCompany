@@ -235,6 +235,43 @@ fieldset .notice {
     margin-top: -15px;
 }
 
-strong { font-weight: bold; }
+strong {
+    font-weight: bold;
+}
 
-em {font-style: italic}
+em {
+    font-style: italic
+}
+
+table {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    width: 85%;
+}
+
+td, th {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+td {
+    padding: 7px;
+}
+
+th {
+    padding: 5px;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}

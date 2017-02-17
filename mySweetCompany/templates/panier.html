@@ -7,12 +7,31 @@
     {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
         <legend>Mon panier</legend>
-        {% load carton_tags %}
-        {% get_cart as cart %}
-        {% for item in cart.items %}
-            {{ item.product.nom }}
-            {{ item.quantity }}
-            {{ item.subtotal }}
-        {% endfor %}
+        <table>
+            <tr>
+                <th></th>
+                <th>Designation</th>
+                <th>Quantité</th>
+                <th>Prix unitaire</th>
+                <th>Prix total</th>
+            </tr>
+
+            {% load carton_tags %}
+            {% get_cart as cart %}
+            {% for item in cart.items %}
+                <tr>
+                    <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    <td class="left"><a href="{% url 'show' id=item.product.id %}">{{ item.product.nom }}</a></td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}€</td>
+                    <td>{{ item.subtotal }}€</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <th colspan="3" class="right">Montant total à payer :</th>
+                <td>{{ cart.total }}€</td>
+            </tr>
+        </table>
     </fieldset>
 {% endblock %}
