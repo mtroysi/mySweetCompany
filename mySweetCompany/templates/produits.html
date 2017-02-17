@@ -14,7 +14,7 @@
                 {% endfor %} <br/>
                 Note : {{ produit.note }}/5</p>
             <div class="row-product">
-                <form role="form" class="add_to_cart form-group" action="" method="post">
+                <form role="form" class="add_to_cart form-group" action="/produit/{{ produit.id }}/add" method="post">
                     {% csrf_token %}
                     {{ form }}
                     <button type="submit" class="btn btn-link">Ajouter au panier</button>

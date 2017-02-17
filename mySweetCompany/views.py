@@ -73,12 +73,6 @@ def inscription(request):
 def produits(request):
     produits = Produit.objects.all()
     form_class = ProductForm
-    if request.method == 'POST':
-        form = form_class(data=request.POST)
-        if form.is_valid():
-            number = request.POST.get('product_number', '')
-            # print 'Produit ' + str(produit.id) + ' ajouté ' + str(number) + ' fois'
-            messages.add_message(request, messages.INFO, 'Produit ajouté au panier.')
     return render(request, 'produits.html', {'produits': produits, 'form': form_class})
 
 
