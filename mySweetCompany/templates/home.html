@@ -12,6 +12,7 @@
                 {% for vendeur in produit.vendeurs.all %}
                     {{ vendeur.nom }}
                 {% endfor %} <br/>
+                Prix : {{ produit.prix }}€ <br/>
                 Note : {{ produit.note }}/5</p>
         {% empty %}
             <p>Pas de produits à afficher.</p>
