@@ -18,5 +18,7 @@
             <p>Pas de produits à afficher.</p>
         {% endfor %}
     </fieldset>
-
+    <div class="rss">
+        {% load static %}<a href="{% url 'latest' %}"><img src="{% static "mySweetCompany/flux_rss.png" %}" alt="Flux RSS" height="18" width="18"/></a>
+    </div>
 {% endblock %}

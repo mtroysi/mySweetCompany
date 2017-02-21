@@ -14,6 +14,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from mySweetCompany.feeds import LatestProductsFeed
 
 urlpatterns = [
     url(r'^produits', 'mySweetCompany.views.produits', name='produits'),
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^accounts/login/$', 'mySweetCompany.views.login', name='login'),
     url(r'^contact', 'mySweetCompany.views.contact', name='contact'),
     url(r'^credits', 'mySweetCompany.views.credits', name='credits'),
+    url(r'^latest', LatestProductsFeed(), name="latest"),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'mySweetCompany.views.home', name='home'),
