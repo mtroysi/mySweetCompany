@@ -8,10 +8,7 @@
         <legend>Dernier produit ajouté</legend>
         {% for produit in produits %}
             <p><a href="{% url 'show' id=produit.id %}"> {{ produit.nom }}</a><br/>
-                vendu par
-                {% for vendeur in produit.vendeurs.all %}
-                    {{ vendeur.nom }}
-                {% endfor %} <br/>
+                vendu par {{ produit.vendeur.nom }} <br/>
                 Prix : {{ produit.prix }}€ <br/>
             </p>
         {% empty %}

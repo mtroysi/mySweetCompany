@@ -7,7 +7,8 @@
     <fieldset>
         <legend>Détail du produit</legend>
         <h3>{{ produit.nom }}</h3>
-        <p><strong>Prix :</strong> {{ produit.prix }}€ <br/>
+        <p>vendu par <strong>{{ produit.vendeur.nom }}</strong> <br/>
+            <strong>Prix :</strong> {{ produit.prix }}€ <br/>
         </p>
         <p>
             {% if produit.description %}
