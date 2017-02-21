@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
-from django.contrib import messages
-from produits.models import Produit
-from produits.forms import ProductForm
 from carton.cart import Cart
-from django.shortcuts import redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+from django.shortcuts import render
+
+from produits.forms import ProductForm
+from produits.models import Produit
 
 
 # Create your views here.

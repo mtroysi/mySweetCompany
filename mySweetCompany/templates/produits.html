@@ -6,6 +6,13 @@
     {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
         <legend>Liste des produits</legend>
+        <div class="row-product">
+            <form role="form" class="add_to_cart form-group" action="" method="post">
+                {% csrf_token %}
+                {{ search_form }}
+                <button type="submit" class="btn btn-default">Rechercher</button>
+            </form>
+        </div>
         {% for produit in produits %}
             <p><a href="{% url 'show' id=produit.id %}"> {{ produit.nom }}</a><br/>
                 vendu par

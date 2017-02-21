@@ -40,3 +40,7 @@ class LoginForm(forms.Form):
         super(LoginForm, self).__init__(*args, **kwargs)
         self.fields['username'].label = "Pseudo :"
         self.fields['password'].label = "Mot de passe :"
+
+
+class SearchForm(forms.Form):
+    search_text = forms.CharField(max_length=1024, label='Rechercher parmi les produits disponibles ')

@@ -230,6 +230,15 @@ fieldset .notice {
     margin-right: 10px;
 }
 
+.add_to_cart input[type="text"] {
+    margin-left: 10px;
+    line-height: 22px;
+}
+
+.add_to_cart button {
+    margin-top: -5px;
+}
+
 .row-product {
     margin-bottom: 20px;
     margin-top: -15px;
