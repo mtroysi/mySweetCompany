@@ -5,7 +5,7 @@
 {% block content %}
     {% block notice %}{{ block.super }}{% endblock notice %}
     <fieldset>
-        <legend>Derniers produits ajoutés</legend>
+        <legend>Dernier produit ajouté</legend>
         {% for produit in produits %}
             <p><a href="{% url 'show' id=produit.id %}"> {{ produit.nom }}</a><br/>
                 vendu par
@@ -13,7 +13,7 @@
                     {{ vendeur.nom }}
                 {% endfor %} <br/>
                 Prix : {{ produit.prix }}€ <br/>
-                Note : {{ produit.note }}/5</p>
+            </p>
         {% empty %}
             <p>Pas de produits à afficher.</p>
         {% endfor %}

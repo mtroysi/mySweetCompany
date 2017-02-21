@@ -13,7 +13,7 @@
                     {{ vendeur.nom }}
                 {% endfor %} <br/>
                 Prix : {{ produit.prix }}€ <br/>
-                Note : {{ produit.note }}/5</p>
+            </p>
             <div class="row-product">
                 <form role="form" class="add_to_cart form-group" action="/produit/{{ produit.id }}/add" method="post">
                     {% csrf_token %}

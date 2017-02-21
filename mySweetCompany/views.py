@@ -19,7 +19,7 @@ from django.contrib.auth import logout
 
 
 def home(request):
-    produits = Produit.objects.all().order_by('-date_publication')[:10]
+    produits = Produit.objects.all().order_by('-date_publication')[:1]
     return render(request, 'home.html', {'produits': produits})
 
 
