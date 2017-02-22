@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 
 from produits.forms import ProductForm
+from commentaires.forms import CommentForm
 from produits.models import Produit
 
 
@@ -22,8 +23,7 @@ def show(request, id):
             cart = Cart(request.session)
             cart.add(produit, price=produit.prix, quantity=number)
             messages.add_message(request, messages.INFO, 'Produit ajouté au panier.')
-
-    return render(request, 'show.html', {'produit': produit, 'form': form_class})
+    return render(request, 'show.html', {'produit': produit, 'form': form_class, 'comment_form': CommentForm()})
 
 
 @login_required

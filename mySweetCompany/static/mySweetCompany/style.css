@@ -296,3 +296,46 @@ th {
     text-align: center;
     margin-bottom: -20px;
 }
+
+.indicator {
+    color: #aaaaaa;
+    margin-bottom: 3px !important;
+}
+
+
+form.add_comment div {
+    clear: left;
+    margin-bottom: 10px;
+}
+
+form.add_comment label {
+    float: left;
+    width: 200px;
+    font-weight: bold;
+    vertical-align: top;
+    padding-top: 10px;
+}
+
+form.add_comment input[type="text"]{
+    width: 500px;
+    line-height: 26px;
+    min-height: 26px;
+}
+
+form.add_comment textarea {
+    width: 510px;
+    height: 150px;
+    line-height: 26px;
+    margin-left: -45px;
+    margin-top: 9px;
+    margin-bottom: 10px;
+}
+
+form.add_comment button[type="submit"] {
+    margin-left: 155px;
+    width: 510px;
+    line-height: 26px;
+    font-size: 20px;
+    min-height: 26px;
+    margin-bottom: 20px;
+}

@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'client',
     'produits',
     'societes',
+    'commentaires',
     'carton',
 )
 

@@ -14,9 +14,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+
 from mySweetCompany.feeds import LatestProductsFeed
 
 urlpatterns = [
+    url(r'^comment/new/(?P<id>[0-9]+)', 'commentaires.views.add_comment', name='add_comment'),
     url(r'^produits', 'mySweetCompany.views.produits', name='produits'),
     url(r'^produit/(?P<id>[0-9]+)/remove', 'produits.views.remove_from_cart', name='remove_from_cart'),
     url(r'^produit/(?P<id>[0-9]+)/add', 'produits.views.add_to_cart', name='add_to_cart'),

@@ -24,5 +24,26 @@
             <button type="submit" class="btn btn-link">Ajouter au panier</button>
         </form>
 
+        <h3>Commentaires</h3>
+        {% for comment in produit.comments.all %}
+            <div class="comment">
+                <p class="indicator">
+                    Posté par {{ comment.auteur.user.username }} le {{ comment.date_publication }}
+                </p>
+                {{ comment.text|linebreaks }}
+            </div>
+        {% empty %}
+            <p>Aucun commentaire pour ce produit.</p>
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+            <h3>Ajouter un commentaire</h3>
+            <form role="form" class="add_comment" action="/comment/new/{{ produit.id }}" method="post">
+                {% csrf_token %}
+                {{ comment_form }}
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        {% endif %}
+
     </fieldset>
 {% endblock %}
