@@ -107,7 +107,7 @@ def produits(request):
     search_class = SearchForm
     if request.method == 'POST':
         search_text = request.POST.get('search_text')
-        entry_query = get_query(search_text, ['nom'])
+        entry_query = get_query(search_text, ['nom', 'description'])
         produits = Produit.objects.filter(entry_query).order_by('-date_publication')
 
     return render(request, 'produits.html', {'produits': produits, 'form': form_class, 'search_form': search_class})

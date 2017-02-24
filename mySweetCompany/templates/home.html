@@ -7,15 +7,35 @@
     <fieldset>
         <legend>Dernier produit ajouté</legend>
         {% for produit in produits %}
-            <p><a href="{% url 'show' id=produit.id %}"> {{ produit.nom }}</a><br/>
+            <h3><a href="{% url 'show' id=produit.id %}"> {{ produit.nom }}</a></h3>
+            <p><span class="indicator"> Ajouté le {{ produit.date_publication }}</span> <br/>
                 vendu par {{ produit.vendeur.nom }} <br/>
                 Prix : {{ produit.prix }}€ <br/>
             </p>
+            {% if produit.description %}
+                <p>{{ produit.description }}</p>
+            {% else %}
+                <p><em>Pas de description.</em></p>
+            {% endif %}
+
+            <h3>Commentaires</h3>
+            {% for comment in produit.comments.all %}
+                <div class="comment">
+                    <p class="indicator">
+                        Posté par {{ comment.auteur.user.username }} le {{ comment.date_publication }}
+                    </p>
+                    {{ comment.text|linebreaks }}
+                </div>
+            {% empty %}
+                <p>Aucun commentaire pour ce produit.</p>
+            {% endfor %}
+
         {% empty %}
             <p>Pas de produits à afficher.</p>
         {% endfor %}
     </fieldset>
     <div class="rss">
-        {% load static %}<a href="{% url 'latest' %}"><img src="{% static "mySweetCompany/flux_rss.png" %}" alt="Flux RSS" height="18" width="18"/></a>
+        {% load static %}<a href="{% url 'latest' %}"><img src="{% static "mySweetCompany/flux_rss.png" %}"
+                                                           alt="Flux RSS" height="18" width="18"/></a>
     </div>
 {% endblock %}
